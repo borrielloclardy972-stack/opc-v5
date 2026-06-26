@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>OPC超级个体训练营｜稳定上线版</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="locked">
+  <section class="login-screen" id="loginScreen" aria-label="登录注册入口">
+    <header class="login-nav">
+      <div class="brand-row"><span class="brand-logo">OPC</span><div><b>OPC超级个体</b><small>SUPER INDIVIDUAL CAMP</small></div></div>
+      <nav><a href="#loginCard">学员登录</a><a href="#loginCard">管理员登录</a><a class="nav-pill" href="#loginCard">注册申请</a></nav>
+    </header>
+    <main class="login-main">
+      <section class="login-copy">
+        <span class="eyebrow"><i></i> 训练营 / 物料 / 代理认证 / 学习闭环</span>
+        <h1>把引流、销售、交付和代理成长做成一套可复制系统</h1>
+        <p>上线后首页先讲清楚公司做什么、学员能学到什么；进入工作台后能查看培训营、核心物料、素材案例、代理数据、学习进度和考核入口。</p>
+        <div class="login-value-grid">
+          <article><b>01</b><strong>引流端培训营</strong><span>抖音、小红书、视频号、闲鱼等渠道训练。</span></article>
+          <article><b>02</b><strong>销售 / 交付端</strong><span>成交、承接、交付、复盘全链路SOP。</span></article>
+          <article><b>03</b><strong>代理成长看板</strong><span>等级、分数、开单、金额和排行集中展示。</span></article>
+        </div>
+      </section>
+      <form class="login-card" id="loginCard">
+        <div class="login-card-head"><span class="card-logo">OPC</span><div><small>ACCESS PORTAL</small><h2>登录 / 注册训练营</h2></div></div>
+        <p class="muted">用户登录查看素材；管理员登录可上传、删除、查看注册申请。</p>
+        <div class="login-tabs" role="tablist">
+          <button class="active" type="button" data-auth="user">用户登录</button>
+          <button type="button" data-auth="admin">管理员登录</button>
+          <button type="button" data-auth="register">注册申请</button>
+        </div>
+        <div id="passwordPanel" class="form-panel">
+          <div class="role-note" id="roleNote"><b>用户登录</b><span>只读权限：查看素材、学习进度和资料内容。</span></div>
+          <label><span id="codeLabel">用户查看卡密</span><input id="accessCode" type="password" placeholder="请输入用户卡密" autocomplete="current-password" /></label>
+          <button class="primary full" type="submit" id="loginSubmit">用户登录查看素材</button>
+        </div>
+        <div id="registerPanel" class="form-panel" hidden>
+          <label>姓名 / 昵称<input id="regName" type="text" placeholder="请输入姓名或昵称" /></label>
+          <label>手机 / 微信<input id="regContact" type="text" placeholder="请输入联系方式" /></label>
+          <label>申请权限<select id="regRole"><option value="user">用户权限：查看素材</option><option value="admin">管理员权限：管理素材</option></select></label>
+          <label>申请说明<textarea id="regNote" placeholder="请写明加入目的、所属团队或需要开通的权限"></textarea></label>
+          <button class="primary full" type="button" id="registerSubmit">提交注册申请</button>
+          <p class="muted small">静态演示会保存到当前浏览器；接云端后可进入后台审核。</p>
+        </div>
+        <p class="form-message" id="formMessage" role="alert"></p>
+      </form>
+    </main>
+  </section>
+
+  <div class="app" id="app" hidden>
+    <aside class="sidebar">
+      <div class="sidebar-brand"><span class="brand-logo">OPC</span><div><b>OPC超级个体</b><small>TRAINING SYSTEM</small></div></div>
+      <nav class="main-nav" aria-label="主模块">
+        <button class="active" data-screen="home"><span>⌂</span><b>首页</b><em>介绍</em></button>
+        <button data-screen="agent"><span>♛</span><b>代理认证卡密</b><em>认证</em></button>
+        <button data-screen="materials"><span>▦</span><b>培训营 / 物料资料</b><em>素材</em></button>
+        <button data-screen="learning"><span>◴</span><b>学习进度</b><em>课程</em></button>
+        <button data-screen="assessment"><span>◎</span><b>考核学习进度</b><em>规划中</em></button>
+      </nav>
+
+      <section class="tree" id="trainingTree">
+        <div class="tree-info"><span>二级菜单</span><b>训练营核心物料与分级内容</b><p>点击二级/三级菜单，右侧素材会按对应分类筛选。</p></div>
+        <button class="tree-reset active" data-category="all">全部学习视频资料</button>
+
+        <div class="tree-group open">
+          <button class="tree-head" type="button"><span>营</span><b>培训营 / 训练营</b><em>展开</em></button>
+          <div class="tree-children">
+            <button data-category="引流端培训营"><b>引流端培训营</b><small>针对引流渠道的专项培训内容</small></button>
+            <div class="tree-third">
+              <button data-category="抖音引流教程">抖音引流教程</button>
+              <button data-category="小红书引流教程">小红书引流教程</button>
+              <button data-category="视频号引流教程">视频号引流教程</button>
+              <button data-category="闲鱼引流教程">闲鱼引流教程</button>
+              <button data-category="BOSS引流教程">BOSS直聘引流教程</button>
+            </div>
+            <button data-category="交付销售培训营"><b>交付端 / 销售端培训营</b><small>销售与交付流程培训内容</small></button>
+          </div>
+        </div>
+
+        <div class="tree-group">
+          <button class="tree-head" type="button"><span>物</span><b>产品物料资料</b><em>展开</em></button>
+          <div class="tree-children">
+            <button data-category="产品核心物料"><b>产品核心物料</b><small>产品相关核心物料</small></button>
+            <button data-category="基础文档SOP"><b>基础文档 / SOP</b><small>基础文档与执行流程</small></button>
+          </div>
+        </div>
+
+        <div class="tree-group">
+          <button class="tree-head" type="button"><span>案</span><b>素材案例</b><em>展开</em></button>
+          <div class="tree-children">
+            <button data-category="高转化素材案例"><b>高转化素材案例</b><small>供学员参考和复用</small></button>
+            <button data-category="成交交付案例"><b>成交 / 交付案例</b><small>实际交付与成交案例</small></button>
+          </div>
+        </div>
+
+        <div class="tree-group">
+          <button class="tree-head" type="button"><span>其</span><b>其他资料</b><em>展开</em></button>
+          <div class="tree-children">
+            <button data-category="工具清单FAQ"><b>工具清单 / FAQ</b><small>常用工具、问题与公告</small></button>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div><small id="crumb">首页</small><h2 id="screenTitle">首页</h2></div>
+        <div class="top-actions"><span class="user-badge" id="roleBadge">用户</span><button class="ghost" id="switchAccess">切换卡密</button></div>
+      </header>
+
+      <section class="screen active" id="screen-home">
+        <div class="hero-panel"><div><small>OPC HOME</small><h1>OPC超级个体训练营</h1><p>这里是对外上线后首先看到的首页：说明公司做什么、学员可以学到什么，以及如何通过培训营、物料、代理认证、学习进度和考核完成成长闭环。</p><div class="mission"><span>共创</span><i></i><span>共担</span><i></i><span>共利</span><i></i><span>共生</span></div></div></div>
+        <div class="home-grid"><article><b>公司介绍</b><p>围绕引流获客、销售转化和交付履约打造训练营。</p></article><article><b>能学到什么</b><p>引流端渠道打法、销售转化流程、交付端SOP、产品物料和案例。</p></article><article><b>成长路径</b><p>注册账号 → 学习课程 → 完成考核 → 认证OPC超级个体。</p></article><article><b>运营目标</b><p>把学员的学习、考核、业绩和代理成长形成可视化闭环。</p></article></div>
+      </section>
+
+      <section class="screen" id="screen-agent">
+        <div class="section-hero"><small>AGENT CERTIFICATION KEY</small><h1>代理认证卡密</h1><p>用户完成注册账号并通过身份认证后，即正式成为系统内的“OPC超级个体”。这里集中展示账号认证状态、等级制度、分数度、开单数量、开单金额和综合排名。</p><button class="primary" id="verifyBtn">完成身份认证</button></div>
+        <div class="identity-card"><span class="avatar">OPC</span><div><small id="verifyText">已认证账号</small><h2>OPC超级个体 · 示例用户</h2><div class="level-tags"><span class="on">青铜</span><span>白银</span><span>黄金</span><span>铂金</span><span>钻石</span><span>王者</span></div></div></div>
+        <div class="stats-grid"><article><span>分数度</span><b>86</b><p>积分 / 等级评估</p></article><article><span>开单数量</span><b>18 单</b><p>累计成交订单</p></article><article><span>开单金额</span><b>¥128,600</b><p>累计成交金额</p></article><article><span>综合排名</span><b>#07</b><p>按业绩、金额、入驻时间计算</p></article></div>
+        <div class="ranking"><h3>代理排名看板</h3><div class="rank-row top"><em>01</em><b>王者代理 · 林同学</b><span>¥286,000</span><i>98分</i></div><div class="rank-row"><em>02</em><b>钻石代理 · 陈同学</b><span>¥221,800</span><i>92分</i></div><div class="rank-row current"><em>07</em><b>黄金代理 · 示例用户</b><span>¥128,600</span><i>86分</i></div></div>
+      </section>
+
+      <section class="screen" id="screen-materials">
+        <div class="section-head"><div><small>TRAINING MATERIALS</small><h1>培训营 / 物料资料</h1><p id="materialHint">全部学习视频资料</p></div><div class="admin-actions"><button class="primary admin-only" id="openUpload">上传素材</button><button class="ghost admin-only" id="openRequests">注册申请</button></div></div>
+        <div class="material-map"><article><span>培训营</span><b>引流端 / 销售端 / 交付端</b></article><article><span>产品物料</span><b>核心物料 / 基础文档 / SOP</b></article><article><span>素材案例</span><b>高转化素材 / 成交交付案例</b></article><article><span>其他资料</span><b>工具清单 / FAQ</b></article></div>
+        <div class="card-grid" id="materialGrid"></div>
+      </section>
+
+      <section class="screen" id="screen-learning">
+        <div class="section-hero"><small>LEARNING PROGRESS</small><h1>学习进度</h1><p>学习进度根据训练营课程来进行，用于跟踪学员有没有看完 / 学完相关课程。</p></div>
+        <div class="progress-list"><article><b>引流端培训营</b><progress value="78" max="100"></progress><span>78%</span></article><article><b>销售端培训营</b><progress value="64" max="100"></progress><span>64%</span></article><article><b>交付端培训营</b><progress value="52" max="100"></progress><span>52%</span></article><article><b>产品物料资料</b><progress value="91" max="100"></progress><span>91%</span></article></div>
+      </section>
+
+      <section class="screen" id="screen-assessment">
+        <div class="section-hero"><small>ASSESSMENT LOOP</small><h1>考核学习进度</h1><p>规划中：学员完成引流端、销售课、交付端培训后，进入这里进行综合考核，验证是否掌握引流、销售、交付与核销核心技能。</p><button class="primary" disabled>进入考核（规划中）</button></div>
+        <div class="exam-steps"><span>1. 完成引流端培训</span><span>2. 完成销售课培训</span><span>3. 完成交付端培训</span><span>4. 进入综合考核</span></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="uploadModal"><form method="dialog" class="modal"><h3>上传素材</h3><input id="upTitle" placeholder="素材名称" /><select id="upCategory"><option>引流端培训营</option><option>交付销售培训营</option><option>产品核心物料</option><option>基础文档SOP</option><option>高转化素材案例</option><option>成交交付案例</option><option>工具清单FAQ</option></select><input id="upPlatform" placeholder="平台：抖音 / 小红书 / 视频号..." /><button class="primary" id="saveMaterial" type="button">保存</button><button class="ghost">关闭</button></form></dialog>
+  <dialog id="requestsModal"><div class="modal"><h3>注册申请</h3><div id="requestsList"></div><button class="ghost" onclick="this.closest('dialog').close()">关闭</button></div></dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
