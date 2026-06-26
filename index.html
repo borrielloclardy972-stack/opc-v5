@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>OPC V4</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="login">
+  <div class="card">
+    <h1>OPC V4 架构版</h1>
+    <button onclick="enter()">进入系统</button>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+  <aside class="sidebar">
+    <button onclick="go('home')">首页</button>
+    <button onclick="go('agent')">代理认证</button>
+    <button onclick="toggle('train')">培训营</button>
+    <div id="train" class="sub">
+      <button onclick="filter('引流')">引流</button>
+      <button onclick="filter('销售')">销售</button>
+    </div>
+    <button onclick="go('learn')">学习进度</button>
+    <button onclick="go('exam')">考核</button>
+  </aside>
+
+  <main class="main">
+    <div id="home" class="page active">首页</div>
+    <div id="agent" class="page">代理数据</div>
+    <div id="content" class="page"><div id="list"></div></div>
+    <div id="learn" class="page">学习进度</div>
+    <div id="exam" class="page">考核规划中</div>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
